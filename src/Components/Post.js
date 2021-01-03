@@ -8,24 +8,21 @@ import NearMeIcon from "@material-ui/icons/NearMe";
 import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
-const Post = () => {
+const Post = ({ profilePic, image, username, timestamp, message }) => {
   return (
     <div className='post'>
       <div className='post__top'>
-        <Avatar src='' className='post__avatar' />
+        <Avatar src={profilePic} className='post__avatar' />
         <div className='post__topInfo'>
-          <h3>username</h3>
-          <p>date</p>
+          <h3>{username}</h3>
+          <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
         </div>
       </div>
       <div className='post__bottom'>
-        <p>message</p>
+        <p>{message}</p>
       </div>
       <div className='post__image'>
-        <img
-          src='https://images.unsplash.com/photo-1599028004313-2b39b6daba11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60'
-          alt=''
-        />
+        <img src={image} alt='' />
       </div>
 
       <div className='post__options'>

@@ -1,15 +1,14 @@
 import React from "react";
 import "../Stylesheets/StoryReel.css";
 import Story from "./Story";
+import { useStateValue } from "./../StateProvider";
 
 const StoryReel = () => {
+  const [{ user }, dispatch] = useStateValue();
+
   return (
     <div className='storyReel'>
-      <Story
-        image='https://media-exp1.licdn.com/dms/image/C5603AQEgD7XwC4EQVw/profile-displayphoto-shrink_100_100/0/1602080742005?e=1614816000&v=beta&t=qcMgGX_a2UaWeB4kSTK86MuHhfFP70QE9mMg2VDCMuA'
-        /*  profileSrc='https://media-exp1.licdn.com/dms/image/C5603AQEgD7XwC4EQVw/profile-displayphoto-shrink_100_100/0/1602080742005?e=1614816000&v=beta&t=qcMgGX_a2UaWeB4kSTK86MuHhfFP70QE9mMg2VDCMuA' */
-        title='Vatsal, Create a Story'
-      />
+      <Story image='' profileSrc={user.photoURL} title={user.displayName} />
       <Story
         image='https://images.unsplash.com/photo-1599028004313-2b39b6daba11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60'
         profileSrc='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Elon_Musk_Royal_Society.jpg/220px-Elon_Musk_Royal_Society.jpg'
